@@ -2,10 +2,10 @@
 
 # Running the server:
 	## Linux:
-		- Open a new terminal
-		- git clone https://github.com/l33th/GoFun/ROT13-Server
-		- cd ROT13-Server
-		- go run rot13Server.go
+		- download this repository or copy the code
+		- when inside the directory where the rot13 algorithm is run the folling command in a terminal:
+			go run rot13Server.go
+		
 		- open a new terminal and type the following:
 			* telnet localhost 8080
 			* type 'hello', the output should be 'uryyb'
