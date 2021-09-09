@@ -1,7 +1,7 @@
 # Make sure you install go on your system.  For help, go to golang.org
 # Running the program:
-  - Download the code
+  - Download the code or clone the repository
   - Open a terminal where the file is located
 
   * run the following command:
-    go run recursion.go
+    go run fibonacciSequence.go

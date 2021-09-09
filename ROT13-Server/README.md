@@ -1,5 +1,5 @@
 # This is a rot13 algorithm server
-
+# Make sure you install go on your system.  For help, go to golang.org
 # Running the server:
 	## Linux:
 		- download this repository or copy the code
