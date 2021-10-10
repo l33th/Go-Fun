@@ -1,7 +1,10 @@
 package main
-
-import "fmt"
-
+ 
+import (
+    "fmt"
+)
+ 
 func main() {
-	fmt.Println("Go Interfaces Setup")
+    var a interface{}
+    fmt.Println(a)
 }
