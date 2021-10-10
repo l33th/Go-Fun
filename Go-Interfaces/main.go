@@ -97,6 +97,15 @@ func(rect Rectangle) area() float64 {
 func getArea(shape Shape) float64 {
     return shape.area()
 }
+
+type Article struct {
+    Title string
+    Author string
+}
+
+func (a Article) String() string {
+    return fmt.Sprintf("The %q article was written by %s.", a.Title, a.Author)
+}
  
 func main() {
     var i interface{}
@@ -134,9 +143,15 @@ func main() {
     f(ac)   // string
     f(cc)   // int
 
-circle := Circle{x:0,y:0,radius:5}
-   rectangle := Rectangle {width:10, height:5}
+    circle := Circle{x:0,y:0,radius:5}
+    rectangle := Rectangle {width:10, height:5}
    
-   fmt.Printf("Circle area: %f\n",getArea(circle))
-   fmt.Printf("Rectangle area: %f\n",getArea(rectangle))
+    fmt.Printf("Circle area: %f\n",getArea(circle))
+    fmt.Printf("Rectangle area: %f\n",getArea(rectangle))
+
+    art := Article{
+        Title: "Interfaces in Go",
+        Author: "WM",
+    }
+    fmt.Println(art.String())
 }
