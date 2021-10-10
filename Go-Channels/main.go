@@ -10,6 +10,11 @@ func sum(s []int, c chan int) {
 	c <- sum // send sum to c
 }
 
+func hello(done chan bool) {  
+    fmt.Println("Hello world goroutine")
+    done <- true
+}
+
 func main() {
 	s := []int{7, 2, 8, -9, 4, 0}
 
@@ -19,4 +24,9 @@ func main() {
 	x, y := <-c, <-c // receive from c
 
     fmt.Println(x, y, x + y)
+
+    done := make(chan bool)
+    go hello(done)
+    <-done
+    fmt.Println("main function")
 }
