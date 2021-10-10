@@ -62,6 +62,10 @@ func isEqual(i interface{}, j interface{}) {
         fmt.Println("Inequal")
     }
 }
+
+func f(i interface{}) {
+    fmt.Printf("%T\n", i)
+}
  
 func main() {
     var i interface{}
@@ -92,4 +96,10 @@ func main() {
     var bbi interface{} = "A string"
      
     isEqual(ai, bbi)   // Equal
+
+    var ac interface{} = "a string"
+    var cc int = 42
+     
+    f(ac)   // string
+    f(cc)   // int
 }
