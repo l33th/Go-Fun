@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "math/rand"
+)
 
 func sum(s []int, c chan int) {
 	sum := 0
@@ -46,6 +49,12 @@ func producer(chnl chan int) {
     close(chnl)
 }
 
+func CalculateValue(values chan int) {
+    value := rand.Intn(10)
+    fmt.Println("Calculated Random Value: {}", value)
+    values <- value
+}
+
 func main() {
 	s := []int{7, 2, 8, -9, 4, 0}
 
@@ -78,4 +87,12 @@ func main() {
     for v := range ch {
         fmt.Println("Received ",v)
     }
+
+    values := make(chan int)
+    defer close(values)
+
+    go CalculateValue(values)
+
+    value := <-values
+    fmt.Println(value)
 }
