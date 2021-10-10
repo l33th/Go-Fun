@@ -39,18 +39,24 @@ func (b *Bird)fly() string{
 func (b *Bird)walk() string{
     return "Walking..."
 }
+
+type B struct{
+    s string
+}
  
 func main() {
     var i interface{}
-    var h = Human{"Glarbouered"}
+    fmt.Println(i)
 
-    fmt.Println(i) 
+    var h = Human{"Glarbouered"}
     fmt.Println(h.greet())
 
     isAPerson(&h)
 
     var b = Bird{"Chirper"}
-     
     fmt.Println(b.fly())
     fmt.Println(b.walk())
+
+    var bi interface{} = B{"a sample string"}
+    fmt.Println(bi.(B))
 }
