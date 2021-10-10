@@ -43,6 +43,17 @@ func (b *Bird)walk() string{
 type B struct{
     s string
 }
+
+func checkType(i interface{}) {
+    switch i.(type) {
+    case int:
+        fmt.Println("Int")
+    case string:
+        fmt.Println("String")
+    default:
+        fmt.Println("Other")
+    }
+}
  
 func main() {
     var i interface{}
@@ -59,4 +70,8 @@ func main() {
 
     var bi interface{} = B{"a sample string"}
     fmt.Println(bi.(B))
+
+    var si interface{} = "A string"
+     
+    checkType(si)
 }
