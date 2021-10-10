@@ -33,8 +33,11 @@ func calcCubes(number int, cubeop chan int) {
         number /= 10
     }
     cubeop <- sum
-} 
+}
 
+func sendData(sendch chan<- int) {  
+    sendch <- 10
+}
 
 func main() {
 	s := []int{7, 2, 8, -9, 4, 0}
@@ -58,4 +61,8 @@ func main() {
     go calcCubes(number, cubech)
     squares, cubes := <-sqrch, <-cubech
     fmt.Println("Final output", squares + cubes)
+
+    sendch := make(chan int)
+    go sendData(sendch)
+    fmt.Println(<-sendch)
 }
