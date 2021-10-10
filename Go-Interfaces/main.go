@@ -54,6 +54,14 @@ func checkType(i interface{}) {
         fmt.Println("Other")
     }
 }
+
+func isEqual(i interface{}, j interface{}) {
+    if(i == j) {
+        fmt.Println("Equal")
+    } else {
+        fmt.Println("Inequal")
+    }
+}
  
 func main() {
     var i interface{}
@@ -74,4 +82,14 @@ func main() {
     var si interface{} = "A string"
      
     checkType(si)
+
+    var ii interface{}
+    var ji interface{}
+     
+    isEqual(ii, ji)   // Equal
+     
+    var ai interface{} = "A string"
+    var bbi interface{} = "A string"
+     
+    isEqual(ai, bbi)   // Equal
 }
