@@ -39,6 +39,13 @@ func sendData(sendch chan<- int) {
     sendch <- 10
 }
 
+func producer(chnl chan int) {  
+    for i := 0; i < 10; i++ {
+        chnl <- i
+    }
+    close(chnl)
+}
+
 func main() {
 	s := []int{7, 2, 8, -9, 4, 0}
 
@@ -65,4 +72,14 @@ func main() {
     sendch := make(chan int)
     go sendData(sendch)
     fmt.Println(<-sendch)
+
+    ch := make(chan int)
+    go producer(ch)
+    for {
+        v, ok := <-ch
+        if ok == false {
+            break
+        }
+        fmt.Println("Received ", v, ok)
+    }
 }
