@@ -17,10 +17,15 @@ func main() {
 	}
 
 	pdf := gofpdf.New("P", "mm", "A4", "")
+
 	pdf.AddPage()
 	pdf.SetFont("Arial", "B", 14)
 	pdf.MultiCell(190, 5, string(content), "0", "0", false)
 
 	err = pdf.OutputFileAndClose("test.pdf")
-	fmt.Println("PDF Created", err)
+	if err != nil {
+		log.Fatalf("%s Could not create file", err)
+	}
+
+	fmt.Println("PDF Created")
 }
