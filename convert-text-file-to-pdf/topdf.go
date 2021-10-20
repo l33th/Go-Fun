@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+
+	"github.com/jung-kurt/gofpdf"
 )
 
 func main() {
@@ -13,5 +15,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("%s file not found", file)
 	}
-	fmt.Println(content)
+
+	pdf := gofpdf.New("P", "mm", "A4", "")
+	pdf.AddPage()
+	pdf.SetFont("Arial", "B", 14)
+	pdf.MultiCell(190, 5, string(content), "0", "0", false)
+
+	err = pdf.OutputFileAndClose("test.pdf")
+	fmt.Println("PDF Created", err)
 }
