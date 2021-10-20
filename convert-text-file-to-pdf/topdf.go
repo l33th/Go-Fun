@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+)
 
 func main() {
-	fmt.Println("Convert Text To PDF")
+	file := "test.txt"
+
+	content, err := ioutil.ReadFile(file)
+	if err != nil {
+		log.Fatalf("%s file not found", file)
+	}
+	fmt.Println(content)
 }
