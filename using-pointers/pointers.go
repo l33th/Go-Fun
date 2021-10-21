@@ -8,6 +8,9 @@ func main() {
 	fmt.Println("xValue Variable Before: ", xValue)
 
 	foo(&xValue)
+
+	fmt.Println("xValue Address after: ", &xValue)
+	fmt.Println("xValue Variable after: ", xValue)
 }
 
 func foo(yValue *int) {
